@@ -36,18 +36,20 @@ screens_parent.addEventListener("scroll",pageTransition);
 
 
 document.querySelector("#screen-take-quiz").addEventListener("click", e => {
-    filename = e.target.textContent.toLowerCase().split(" ").join("-")+".html";
+    if(e.target.className == "chapter"){
+        filename = e.target.textContent.toLowerCase().split(" ").join("-")+".html";
 
-    // alert(filename);
+        // alert(filename);
 
-    let http = new XMLHttpRequest();
-    http.onreadystatechange = function () {
-        if(http.readyState == 4 && http.status == 200){
-            if(this.response !== ""){
-                document.querySelector("#screen-take-quiz").innerHTML = this.responseText;
+        let http = new XMLHttpRequest();
+        http.onreadystatechange = function () {
+            if(http.readyState == 4 && http.status == 200){
+                if(this.response !== ""){
+                    document.querySelector("#screen-take-quiz").innerHTML = this.responseText;
+                }
             }
         }
+        http.open("GET", `quiz-files/${filename}`, true);
+        http.send();
     }
-    http.open("GET", `quiz-files/${filename}`, true);
-    http.send();
 })
