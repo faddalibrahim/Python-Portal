@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <title>Document</title>
+    <!-- <link rel="manifest" href="manifest.json"> -->
+    <!-- app shell css -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        :root{
+            --gray: #ececec;
+            --whitesmoke: #f5f5f5;
+            --dark: #333;
+        }
+        body{
+            background-color: var(--whitesmoke);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+        }
+        #header{
+            background-color: white;
+            box-shadow: 1px 1px 1px rgba(0, 0,0, 0.1);
+            /*display: flex;*/
+            /*justify-content: space-between;*/
+            /*align-items: center;*/
+            color: var(--dark);
+            font-size: 1.2rem;
+            /*font-size: 22px;*/
+            /*font-weight: 100;*/
+            /*padding: 5px 0;*/
+            /*list-style: none;*/
+            /*height: 75px;*/
+            font-family: sans-serif;
+        }
+
+        #header div{
+            padding: 0.5rem 0.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+            /*color: var(--whitesmoke);*/
+        }
+        #header nav{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+        #header nav a{
+            text-decoration: none;
+            /*color: #aaa;*/
+            /*color: #444;*/
+            color: #888;
+            padding-bottom: 0.4rem;
+            /*border-bottom: 0.1rem solid blue;*/
+            /*font-family: yellowtail;*/
+            font-size: 0.9rem;
+            border-bottom: 0.1rem solid transparent;
+            transition: all 0.1s ease-in-out;
+            flex-grow: 1;
+        }
+        #header nav a:hover{
+            color: var(--dark);
+            /*border-bottom-color: var(--dark);*/
+            /*font-weight: 550;*/
+            font-size: 1.05rem;
+            /*transform: scale(1.15);*/
+        }
+  
+
+        #screens-parent{
+            display: flex;
+            width: 100vw;
+            flex-grow: 1;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            /*background-color: red;*/
+        }
+
+        .screen{
+            flex: 0 0 100vw;
+            scroll-snap-align: start;
+            /*background-color: grey;*/
+            /*flex-grow: 1;*/
+            /*display: flex;*/
+            /*justify-content: center;*/
+            /*align-items: center;*/
+            /*height: 100%;*/
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    <!-- App Shell HTML -->
+    <header id="header">
+        <!-- <li>Logo</li> -->
+        <div>
+            <!-- <img src="python_logo.png"> -->
+            <i class="fab fa-python"></i>
+            <h5>Python Portal</h5>
+            <!-- <img src="plus.png"> -->
+            <i class="fas fa-plus"></i>
+        </div>
+
+        <nav>
+           <a href="#screen-take-quiz">Take Quiz</a> 
+           <a href="#screen-word-problems">Word Problems</a> 
+           <a href="#screen-class-activities">Class Quizzes</a> 
+           <a href="#screen-lab-activities">Lab Activities</a> 
+        </nav>
+        <!-- <li>Add</li> -->
+    </header>
+    <main id="screens-parent">
+        <div id="screen-take-quiz" class="screen">Take a Quiz</div>
+        <div id="screen-word-problems" class="screen">Word Problems</div>
+        <div id="screen-class-activities" class="screen">Class Quizes</div>
+        <div id="screen-lab-activities" class="screen">Lab Activities</div>
+    </main>
+    <script>
+        // const debounce = (func, wait, immediate) => {
+        //     var timeout;
+        //     return (...args) => {
+        //         const later = () => {
+        //             timeout = null;
+        //             if(!immediate) func.apply(this,args);
+        //         };
+        //         const callNow = immediate && !timeout;
+        //         clearTimeout(timeout);
+        //         timeout = setTimeout(later,wait);
+        //         if(callNow) func.apply(this,args);
+        //     };
+        // }
+
+        // const screens = document.getElementById("screens"),
+        //       navbar = document.getElementById("navbar"),
+        //       pageNames = ["Flights","Rewards"];
+
+        // const pageTransition = debounce(() => {
+        //     const index = Math.round(screens.scrollLeft / window.innerWidth);
+        //     navbar.textContent = pageNames[index];
+        //     // const index = screens.scrollLeft;
+        //     // console.log(index);
+        // },60)
+
+        // screens.addEventListener("scroll",pageTransition);
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
