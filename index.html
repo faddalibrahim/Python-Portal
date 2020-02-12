@@ -136,7 +136,11 @@
             cursor: pointer;
         }
 
-        #screen-take-quiz input[type=radio] + span{
+        #screen-take-quiz input[type=radio]:checked + label{
+            color: #1c8adb;
+        }
+
+        #screen-take-quiz input[type=radio] + label{
             font-size: 1.2rem;
             cursor: pointer;
         }
@@ -144,6 +148,17 @@
         #screen-take-quiz p{
             font-size: 1.1rem;
         }
+
+         #screen-take-quiz button{
+            outline: none;
+            border: none;
+            padding: 0.8rem;
+            background-color: #282639;
+            color: white;
+            text-align: center;
+            margin: 0 0.8rem;
+            font-size: 1rem;
+         }
     </style>
 </head>
 <body>
