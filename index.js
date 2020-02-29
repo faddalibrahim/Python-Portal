@@ -35,44 +35,18 @@ screens_parent.addEventListener("scroll",pageTransition);
 
 
 
-document.querySelector("#screen-take-quiz").addEventListener("click", e => {
+document.querySelector("#screen-take-quiz").addEventListener("click", function(e) {
+    mainDiv = this;
+
     if(e.target.parentElement.className == "questionSet"){
         let clickedChapter = e.target.parentElement.previousElementSibling.textContent.toLowerCase();
-        let clickedQuestionSet = e.target.textContent;
+        let clickedQuestionSet = e.target.textContent.toLowerCase();
 
-        // fetch("dumb.json")
-        // .then(response => response.json())
-        // // .then( quizFile => console.log(quizFile.find(quiz => quiz.chapter == clickedChapter)))
-        // .then( quizFile => quizFile.find(quiz => quiz.chapter == clickedChapter))
-        // .then(({questionSet}) => console.log(questionSet.TrueOrFalse))
-        // .catch(err => console.log(err));
-
-        fetch("dumb.json")
+        fetch("questions_file.json")
         .then(response => response.json())
         .then(quizFile => quizFile.find(quiz => quiz.chapter == clickedChapter))
-        // .then(({questionSet}) => render(questionSet.clickedQuestionSet))
-        .then(({questionSet}) => render(questionSet,clickedQuestionSet))
-
-        // console.log(clickedQuestionSet)
+        .then(({questionSet}) => render(questionSet[clickedQuestionSet],mainDiv))
     }
-    // const mainContainer = document.querySelector('#screen-take-quiz');
-
-
-    // fetch("dumb.json")
-    // .then(response => response.json())
-    // .then( ({chapter1}) =>render(chapter1, mainContainer))
-    // .catch(err => console.log(err));
-
-
-    // fetch("dumb.json")
-    // .then(response => response.json())
-    // .then( ({chapter1}) => console.log(chapter1))
-    // .catch(err => console.log(err));
-
-    // fetch("dumb.json")
-    // .then(response => response.json())
-    // .then( item => console.log(item))
-    // .catch(err => console.log(err));
 
 });
 
@@ -82,8 +56,50 @@ document.querySelector("#screen-take-quiz").addEventListener("click", e => {
 
 // }
 
-const render = (questionSet,clickedQuestionSet) => {
-    console.log(clickedQuestionSet)
+const render = (questionSetToDisplay,mainDiv) => {
+    mainDiv.innerHTML = "";
+
+    questionSetToDisplay.forEach((questionBlock,index) => {
+        const {q,ans,opts} = questionBlock;
+
+        const container = document.createElement("div");
+        container.className ="questionBlock";
+
+        const question = document.createElement("p");
+        question.textContent = q;
+
+        //appending question to div
+        container.appendChild(question)
+
+        optNum = 1
+        for(opt of opts){
+
+            const input = document.createElement('input');
+            const label = document.createElement('label');
+            const br = document.createElement('br');
+
+            //setting attributes for the radio button
+            input.type = "radio";
+            input.id = `q${index+1}-option-${optNum}`;
+            input.name = `q${index+1}-option`;
+            input.value = opt;
+
+
+            //attributes for the label
+            label.textContent = opt.toString();
+            // label.id = `option-${index+1}`;
+            label.setAttribute('for', `q${index+1}-option-${optNum}`);
+
+            container.appendChild(input);
+            container.appendChild(label);
+            container.appendChild(br);
+
+            optNum++
+        }
+
+        mainDiv.appendChild(container);
+    })
+
 }
 
 // const render = (chapter, mainDiv) => {
