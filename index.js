@@ -38,7 +38,7 @@ screens_parent.addEventListener("scroll",pageTransition);
 document.querySelector("#screen-take-quiz").addEventListener("click", function(e) {
     mainDiv = this;
 
-    if(e.target.parentElement.className == "questionSet"){
+    if(e.target.tagName == "SMALL" && e.target.parentElement.className == "questionSet"){
         let clickedChapter = e.target.parentElement.previousElementSibling.textContent.toLowerCase();
         let clickedQuestionSet = e.target.textContent.toLowerCase();
 
