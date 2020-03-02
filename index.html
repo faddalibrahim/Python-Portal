@@ -6,127 +6,16 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="theme-color" content="#7f00ffe6">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title>Document</title>
     <!-- <link rel="manifest" href="manifest.json"> -->
     <!-- app shell css -->
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html{
-            scroll-behavior: smooth;
-        }
-        :root{
-            --gray: #ececec;
-            --whitesmoke: #f5f5f5;
-            --dark: #333;
-        }
-        body{
-            /*background-color: var(--whitesmoke);*/
-            background-color: white;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-flow: column;
-            justify-content: space-between;
-        }
-        #header{
-            /*background-color: #282639;*/
-            /*box-shadow: 2px 2px 2px rgba(0,0,0, 0.4);*/
-            box-shadow: 0.1rem 0.05rem 1rem rgba(13,12,14,0.5);
-            /*display: flex;*/
-            /*justify-content: space-between;*/
-            /*align-items: center;*/
-            /*color: var(--whitesmoke);*/
-            color: white;
-            font-size: 1.2rem;
-            /*font-size: 22px;*/
-            /*font-weight: 100;*/
-            /*padding: 5px 0;*/
-            /*list-style: none;*/
-            /*height: 75px;*/
-            font-family: sans-serif;
-        }
 
-        footer{
-            background-color: orangered;
-            color: whitesmoke;
-            text-align: center;
-        }
-
-        #header div{
-            padding: 0.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: orangered;
-            background-color: rgba(127, 0, 255, 0.9);
-
-            /*position: relative;*/
-            /*z-index: -999;*/
-            /*color: var(--dark);*/
-            /*color: var(--whitesmoke);*/
-        }
-        #header nav{
-            display: flex;
-            justify-content: space-between;
-            text-align: center;
-            /*box-shadow: 0.1rem 0.1rem 1rem rgba(13,12,14,0.7);*/
-        }
-        #header nav a{
-            text-decoration: none;
-            background-color: white;
-            /*color: #aaa;*/
-            /*color: #444;*/
-            /*color: #888;*/
-            color: #282639;
-            padding: 0.4rem 0;
-            /*border-bottom: 0.1rem solid blue;*/
-            /*font-family: yellowtail;*/
-            font-size: 1rem;
-            border-bottom: 0.13rem solid transparent;
-            transition: all 0.1s ease-in-out;
-            flex-grow: 1;
-        }
-        #header nav a:hover{
-            /*color: #888;*/
-            /*border-bottom-color: var(--whitesmoke);*/
-            /*background-color: var(--whitesmoke);*/
-            /*color: brown;*/
-            /*font-weight: 550;*/
-            /*font-size: 1.05rem;*/
-            /*transform: scale(1.15);*/
-        }
-
-        #header nav a.clicked{
-            /*background-color: white;*/
-            /*color: #282639;*/
-            border-bottom-color: rgba(127, 0, 255, 0.9);
-        }
   
 
-        #screens-parent{
-            display: flex;
-            width: 100vw;
-            flex-grow: 1;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-            /*background-color: red;*/
-        }
-
-        .screen{
-            flex: 0 0 100vw;
-            scroll-snap-align: start;
-            /*background-color: grey;*/
-            /*flex-grow: 1;*/
-            /*display: flex;*/
-            /*justify-content: center;*/
-            /*align-items: center;*/
-            /*height: 100%;*/
-        }
+      
 
 
         ::-webkit-scrollbar {
@@ -138,167 +27,91 @@
             background: transparent;
         }
 
-        #screen-take-quiz > div{
-            /*box-shadow: 0rem 0.2rem 0.4rem -0.1rem rgba(13,12,14,0.6);*/
-            box-shadow: 0rem 0.2rem 0.4rem -0.2rem rgba(13,12,14,0.6);
-            margin: 1rem 0.8rem;
-            padding: 0.5rem;
-            /*background-color: white;*/
-            transition: all 0.5s;
-        }
+       
 
-        #screen-take-quiz > div:hover > .questionSet{
-            /*display: block;*/
-            height: 1.2rem;
-            margin-top: 0.3rem;
-           /* position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            background-color: rgba(13,12,14,0.5);*/
-            /*width: 100vw;*/
-            /*height: 100vh;*/
-        }
-
-        #screen-take-quiz > div:hover{
-            /*transform: scale(1.1);*/
-            margin-left: 0;
-            margin-right: 0;
-        }
 
        /* #screen-take-quiz > div:hover ~ .chapters{
             display: none;
         }*/
 
-        #screen-take-quiz input[type=radio]{
-            margin-right: 0.5rem;
-            margin-top: 1rem;
-            transform: scale(1.3);
-            cursor: pointer;
-        }
+       
 
-        #screen-take-quiz input[type=radio]:checked + label{
-            color: #7f00ffe6;
-        }
+       
 
-        #screen-take-quiz input[type=radio] + label{
-            /*font-size: 1.2rem;*/
-            cursor: pointer;
-        }
+     
+         
 
-        #screen-take-quiz p{
-            /*font-size: 1.1rem;*/
-            font-weight: 500;
-            font-family: sans-serif;
-        }
-
-         #screen-take-quiz button{
-            outline: none;
-            border: none;
-            padding: 0.8rem;
-            background-color: #282639;
-            color: white;
-            text-align: center;
-            margin: 0 0.8rem;
-            font-size: 1rem;
-         }
-
-         .chapters{
-            /*background-color: white;*/
+         /* .chapters{
+            background-color: white;
             opacity: 0;
          }
-
-         .questionSet{
-            /*display: flex;*/
-            /*display: none;*/
-            height: 0;
-            overflow-y: hidden;
-            justify-content: space-between;
-            transition: all 0.5s;
-            /*margin-top: 0.5rem;*/
-         }
-
+         
+         
          .chapters{
             animation: fadeIn 2.6s linear forwards;
          }
-
+         
          .chapters:nth-child(1){
             animation-delay: 0.1s;
          }
-
+         
           .chapters:nth-child(2){
             animation-delay: 0.2s;
          }
-
+         
           .chapters:nth-child(3){
             animation-delay: 0.3s;
          }
-
+         
           .chapters:nth-child(4){
             animation-delay: 0.4s;
          }
-
+         
           .chapters:nth-child(5){
             animation-delay: 0.5s;
          }
-
+         
           .chapters:nth-child(6){
             animation-delay: 0.6s;
          }
-
+         
           .chapters:nth-child(7){
             animation-delay: 0.7s;
          }
-
+         
           .chapters:nth-child(8){
             animation-delay: 0.8s;
          }
-
+         
           .chapters:nth-child(9){
             animation-delay: 0.9s;
          }
-
+         
           .chapters:nth-child(10){
             animation-delay: 1s;
          }
-
+         
           .chapters:nth-child(11){
             animation-delay: 1.1s;
          }
-
+         
           .chapters:nth-child(12){
             animation-delay: 1.2s;
          }
-
+         
           .chapters:nth-child(13){
             animation-delay: 1.3s;
-         }
+         } */
 
-         @keyframes fadeIn{
-            from{
-                opacity: 0;
-            }
-            to{
-                opacity: 1;
-            }
-         }
+        
 
 
 
-         .questionSet small{
-            padding: 0.2rem;
-            color: rgba(127, 0, 255, 0.9);
-            font-size: 0.95rem;
-            font-weight: 500;
-            /*background-color: orangered;*/
-            /*color: white;*/
-         }
+         
 
 
 
-         .questionBlock{
-            animation: fadeIn 1.5s linear;
-         }
+       
     </style>
 </head>
 <body>
@@ -446,7 +259,13 @@
         <div id="screen-lab-activities" class="screen">Lab Activities</div>
     </main>
    <!--  <footer>
-        Made by Faddal
+        <pre>
+            <code class="language-">
+               console.log("apple")
+               print("i am hungry")
+               echo "something"
+            </code>
+        </pre>
     </footer> -->
     <script>
         // const debounce = (func, wait, immediate) => {
@@ -477,5 +296,7 @@
         // screens.addEventListener("scroll",pageTransition);
     </script>
     <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+    <!-- <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/go.min.js"></script> -->
 </body>
 </html>

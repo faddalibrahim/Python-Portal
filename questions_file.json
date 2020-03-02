@@ -16,7 +16,7 @@
                 {"q": "A chaotic function can't be computed by a computer", "ans": true, "opts": [true,false]}
             ],
             "multiplechoice":[
-                {"q": "what is the fundamental question of computer science?", "ans": "optionA", "opts": ["how fast can a computer compute?","what can be computed?","what is the most effective programming language?","how much money can programmer make?"]},
+                {"q": "What is the fundamental question of computer science?", "ans": "optionA", "opts": ["how fast can a computer compute?","what can be computed?","what is the most effective programming language?","how much money can programmer make?"]},
                 {"q": "An algorithm is like a", "ans": "optionC", "opts": ["newspaper","venus flytrap","drum","recipe"]},
                 {"q": "A problem is intractable when", "ans": "optionD", "opts": ["you cannot reverse its solution","it involves tractors","it has many solutions","it is not practical to solve"]},
                 {"q": "Which of the following is not an example of secondary memory", "ans": "optionA", "opts": ["RAM","hard drive","USB flash drive","DVD"]},

@@ -1,0 +1,176 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root{
+    --gray: #ececec;
+    --whitesmoke: #f5f5f5;
+    --dark: #222;
+    /*--theme-color: #7f00ffe6;*/
+    --theme-color: #1c8adb;
+}
+
+body{
+	background-color: white;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+}
+
+/* HEADER STYLES */
+
+#header{
+    box-shadow: 0.1rem 0.05rem 1rem rgba(13,12,14,0.5);
+    color: white;
+    font-size: 1.2rem;
+}
+
+#header div{
+	padding: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--theme-color);
+}
+
+#header nav{
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+
+#header a{
+	text-decoration: none;
+	color: var(--dark);
+	padding: 0.4rem 0;
+	font-size: 1rem;
+	border-bottom: 0.12rem solid transparent;
+	transition: all 0.1s ease-in-out;
+	flex-grow: 1;
+}
+
+#header a.clicked{
+	border-bottom-color: var(--theme-color);
+}
+
+/* MAIN STYLES */
+	/* 
+		screens-parent is the MAIN tag, containg 4 sub divs corresponding 
+	    to each of the different screens. I gave each sub div a class of 
+	    screen to style them collectively.
+	*/
+#screens-parent{
+	display: flex;
+	width: 100vw;
+	flex-grow: 1;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+}
+
+.screen{
+	flex: 0 0 100vw;
+    scroll-snap-align: start;
+}
+
+	/* 
+		All direct child divs of screen-take-quiz are given a class of chapers
+		These divs contain the name of the chapter in a p tag and a sub-div
+		(given a class of questionSet) containing the question set -- true or false, 
+		multipleChoice, exercises
+
+		Now the reason why I did #screen-take-quiz > div but not #scrren-take-quiz .chapters
+		is because when the user selects a question set, i am going to replace div.chapters
+		with divs containing the questions.
+
+		I want those divs to also have a box shadow, same margin and padding etc
+		since i am targetting basically any directchild div and not being specific by 
+		targetting a class(.chpaters). The divs containing the questions dont have a 
+		class ogf chapters
+	*/
+#screen-take-quiz > div{
+	box-shadow: 0rem 0.2rem 0.4rem -0.2rem rgba(13,12,14,0.6);
+	margin: 1rem 0.8rem;
+	padding: 0.5rem;
+	transition: all 0.3s;
+}
+
+
+	/* 
+		the hover effect here strips out the margins on either side of the div
+		thereby making it 100% and standing out from the rest. I have added a transition
+		to make the it smooth;
+
+		at the same time also, i have hidden the questionSets with height 0 -- true/false, multipleChoice
+		exercises. I reveal them when the hover on #screen-take-quiz > div is active.
+ 	*/
+
+#screen-take-quiz > div:hover{
+	margin: 1rem 0;
+}
+
+.questionSet{
+	height: 0;
+	overflow-y: hidden;
+	transition: all 0.3s;
+}
+
+.questionSet small{
+	padding: 0.2rem;
+	color: var(--theme-color);
+	font-size: 0.95rem;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+#screen-take-quiz > div:hover > .questionSet{
+	height: 1.2rem;
+	margin-top: 0.3rem;
+}
+
+/* QUIZ QUESTIONS STYLING */
+@keyframes fadeIn{
+   from{
+       opacity: 0;
+   }
+   to{
+       opacity: 1;
+   }
+}
+
+/* 
+	fadeIn animation is for a smoooth display of the question block;
+ */
+
+.questionBlock{
+   animation: fadeIn 1.5s linear;
+}
+
+#screen-take-quiz input[type=radio]{
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+#screen-take-quiz input[type=radio]:checked + label{
+    color: var(--theme-color);
+}
+
+#screen-take-quiz input[type=radio] + label{
+    cursor: pointer;
+}
+
+#screen-take-quiz button{
+   outline: none;
+   border: none;
+   padding: 0.8rem;
+   background-color: var(--theme-color);
+   color: white;
+   text-align: center;
+   margin: 0 0.8rem;
+   font-size: 1rem;
+}
