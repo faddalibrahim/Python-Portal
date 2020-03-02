@@ -4,15 +4,15 @@
 
          "questionSet":{
             "trueorfalse":[
-                {"q": "Computer science is the study of computers", "ans": true, "opts": [true,false]},
+                {"q": "Computer science is the study of computers", "ans": false, "opts": [true,false]},
                 {"q": "The CPU is the brain of the computer", "ans": true, "opts": [true,false]},
-                {"q": "Secondary memory is also called the RAM", "ans": true, "opts": [true,false]},
+                {"q": "Secondary memory is also called the RAM", "ans": false, "opts": [true,false]},
                 {"q": "All information that a computer is currently working on is stored in main memory", "ans": true, "opts": [true,false]},
-                {"q": "The syntax od a language is its meaning, and semantics is its form", "ans": true, "opts": [true,false]},
-                {"q": "A function definition is a sequence of a statements that defines a new command", "ans": true, "opts": [true,false]},
-                {"q": "A programming environment refers to a place where programmers work", "ans": true, "opts": [true,false]},
+                {"q": "The syntax of a language is its meaning, and semantics is its form", "ans": false, "opts": [true,false]},
+                {"q": "A function definition is a sequence of statements that defines a new command", "ans": true, "opts": [true,false]},
+                {"q": "A programming environment refers to a place where programmers work", "ans": false, "opts": [true,false]},
                 {"q": "A variable is used to give a name to a value so it can be referred to in other places", "ans": true, "opts": [true,false]},
-                {"q": "A loop is used to skip over a section of a program", "ans": true, "opts": [true,false]},
+                {"q": "A loop is used to skip over a section of a program", "ans": false, "opts": [true,false]},
                 {"q": "A chaotic function can't be computed by a computer", "ans": true, "opts": [true,false]}
             ],
             "multiplechoice":[

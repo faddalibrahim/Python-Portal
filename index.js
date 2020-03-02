@@ -45,28 +45,33 @@ document.querySelector("#screen-take-quiz").addEventListener("click", function(e
         fetch("questions_file.json")
         .then(response => response.json())
         .then(quizFile => quizFile.find(quiz => quiz.chapter == clickedChapter))
-        .then(({questionSet}) => render(questionSet[clickedQuestionSet],mainDiv))
+        .then(({questionSet}) => renderQuiz(questionSet[clickedQuestionSet],mainDiv))
+    }else if(e.target.textContent == "Submit"){
+        markQuiz()
     }
 
 });
 
 
-//this function renders the selected quiz to the screen
-// const render = (chapter, mainDiv) => {
 
-// }
-
-const render = (questionSetToDisplay,mainDiv) => {
+const renderQuiz = (questionSetToDisplay,mainDiv) => {
     mainDiv.innerHTML = "";
 
+    const submitSubmit = document.createElement("button");
+    submitSubmit.type = "button";
+    submitSubmit.textContent = "Submit";
+
+
     questionSetToDisplay.forEach((questionBlock,index) => {
+
         const {q,ans,opts} = questionBlock;
 
         const container = document.createElement("div");
         container.className ="questionBlock";
 
         const question = document.createElement("p");
-        question.textContent = q;
+        question.textContent = `${index+1}. ${q}`;
+
 
         //appending question to div
         container.appendChild(question)
@@ -84,6 +89,10 @@ const render = (questionSetToDisplay,mainDiv) => {
             input.name = `q${index+1}-option`;
             input.value = opt;
 
+            if(ans.toString() === opt.toString()){
+                input.className = "correct";
+            }
+
 
             //attributes for the label
             label.textContent = opt.toString();
@@ -94,55 +103,40 @@ const render = (questionSetToDisplay,mainDiv) => {
             container.appendChild(label);
             container.appendChild(br);
 
-            optNum++
+            optNum++;
         }
+
 
         mainDiv.appendChild(container);
     })
 
+    mainDiv.appendChild(submitSubmit);
+
 }
 
-// const render = (chapter, mainDiv) => {
+
+const markQuiz = () => {
+    let numberOfQuestions = document.querySelectorAll(".questionBlock").length;
 
 
-//     const nodes = mainDiv.querySelectorAll('.chapter');
-//     for (let node of nodes) {
-//         mainDiv.removeChild(node);
-//     }
+    let radios = Array.from(document.querySelectorAll("#screen-take-quiz input[type=radio]"));
 
-//     chapter.questions.map( ({q, ans, options}, i) => {
-//         const qN = i+1;
-//     const container = document.createElement('div');
-//     const question = document.createElement('p');
-
-//     question.textContent = `${qN}. ${q}`;
-
-//     container.appendChild(question);
+    let checkedRadios = radios.filter(radio => radio.checked);
 
 
-//     for (let option of options) {
-//         const input = document.createElement('input');
-//         const label = document.createElement('label');
+    if(checkedRadios.length !== numberOfQuestions){
+        alert("please answer all questions");
+    }else{
+        let correctAnswers = checkedRadios.filter(checkedRadio => checkedRadio.className == "correct");
+
+        let score = correctAnswers.length;
 
 
-//         input.type = "radio";
-//         input.id = `${qN}-${option}`;
-//         input.name = `${qN}-option`;
-//         input.value = option;
+        displayUserScore(score,numberOfQuestions);
+    }
 
-//         label.setAttribute('for', `${qN}-${option}`);
-//         label.textContent = option.toString().toUpperCase();
+}
 
-       
-
-//         container.appendChild(input);
-//         container.appendChild(label);
-//     }
-
-//     mainDiv.appendChild(container);
-
-
-
-//     })
-    
-// }
+const displayUserScore = (score,numberOfQuestions) => {
+    alert(`you scored ${score} out of ${numberOfQuestions}`);
+}
