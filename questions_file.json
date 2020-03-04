@@ -13,19 +13,19 @@
                 {"q": "A programming environment refers to a place where programmers work", "ans": false, "opts": [true,false]},
                 {"q": "A variable is used to give a name to a value so it can be referred to in other places", "ans": true, "opts": [true,false]},
                 {"q": "A loop is used to skip over a section of a program", "ans": false, "opts": [true,false]},
-                {"q": "A chaotic function can't be computed by a computer", "ans": true, "opts": [true,false]}
+                {"q": "A chaotic function can't be computed by a computer", "ans": false, "opts": [true,false]}
             ],
             "multiplechoice":[
-                {"q": "What is the fundamental question of computer science?", "ans": "optionA", "opts": ["how fast can a computer compute?","what can be computed?","what is the most effective programming language?","how much money can programmer make?"]},
-                {"q": "An algorithm is like a", "ans": "optionC", "opts": ["newspaper","venus flytrap","drum","recipe"]},
-                {"q": "A problem is intractable when", "ans": "optionD", "opts": ["you cannot reverse its solution","it involves tractors","it has many solutions","it is not practical to solve"]},
-                {"q": "Which of the following is not an example of secondary memory", "ans": "optionA", "opts": ["RAM","hard drive","USB flash drive","DVD"]},
-                {"q": "Computer languages designed to be used and understood by humans are", "ans": "optionA", "opts": ["natural languages","high-level computer languages","machine languages","fetch-execute languages"]},
-                {"q": "A statement is", "ans": "optionA", "opts": ["a translation of machine language","a complete computer command","a precise description of a problem","a section of an algorithm"]},
-                {"q": "One difference between a compiler and an interpreter is", "ans": "optionA", "opts": ["a compiler is a program","a compiler is used to translate the high-level language into machine language","a compiler is no longer needed after a program is translated","a compiler process source code"]},
-                {"q": "By convention, the statements of a program are often placed in a function called", "ans": "optionA", "opts": ["import","main","program","IDLE"]},
-                {"q": "Which of the following is not true of comments", "ans": "optionA", "opts": ["they make a program more efficient","they are intended for human readers","they are ignored by python","in pthon, they begin with a pound sign(#)"]},
-                {"q": "The items listed in the parentheses of a function definition are called", "ans": "optionA", "opts": ["parentheses","parameters","arguments","both b and c are correct"]}
+                {"q": "What is the fundamental question of computer science?", "ans": "what can be computed?", "opts": ["how fast can a computer compute?","what can be computed?","what is the most effective programming language?","how much money can programmer make?"]},
+                {"q": "An algorithm is like a", "ans": "recipe", "opts": ["newspaper","venus flytrap","drum","recipe"]},
+                {"q": "A problem is intractable when", "ans": "it is not practical to solve", "opts": ["you cannot reverse its solution","it involves tractors","it has many solutions","it is not practical to solve"]},
+                {"q": "Which of the following is not an example of secondary memory", "ans": "RAM", "opts": ["RAM","hard drive","USB flash drive","DVD"]},
+                {"q": "Computer languages designed to be used and understood by humans are", "ans":"high-level computer languages", "opts": ["natural languages","high-level computer languages","machine languages","fetch-execute languages"]},
+                {"q": "A statement is", "ans": "a complete computer command", "opts": ["a translation of machine language","a complete computer command","a precise description of a problem","a section of an algorithm"]},
+                {"q": "One difference between a compiler and an interpreter is", "ans": "a compiler is no longer needed after a program is translated", "opts": ["a compiler is a program","a compiler is used to translate the high-level language into machine language","a compiler is no longer needed after a program is translated","a compiler process source code"]},
+                {"q": "By convention, the statements of a program are often placed in a function called", "ans": "main", "opts": ["import","main","program","IDLE"]},
+                {"q": "Which of the following is not true of comments", "ans": "they make a program more efficient", "opts": ["they make a program more efficient","they are intended for human readers","they are ignored by python","in python, they begin with a pound sign(#)"]},
+                {"q": "The items listed in the parentheses of a function definition are called", "ans": "parameters", "opts": ["parentheses","parameters","arguments","both b and c are correct"]}
             ]
          }
     },

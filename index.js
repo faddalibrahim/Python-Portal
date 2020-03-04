@@ -127,9 +127,23 @@ const markQuiz = () => {
     if(checkedRadios.length !== numberOfQuestions){
         alert("please answer all questions");
     }else{
-        let correctAnswers = checkedRadios.filter(checkedRadio => checkedRadio.className == "correct");
+        //all correct answers are radios with a class of correct
+        //here i give all correct answers a background-color of green
+        let allCorrectAnswers = radios.filter(radio => radio.className == "correct");
+        allCorrectAnswers.forEach(allCorrectAnswer => allCorrectAnswer.nextElementSibling.classList.add("markCorrect"));
 
-        let score = correctAnswers.length;
+        //user correct answers are those checked radios that have a class of correct
+        let userCorrectAnswers = checkedRadios.filter(checkedRadio => checkedRadio.className == "correct");
+
+
+        //user score is the length of user correct answers
+        let score = userCorrectAnswers.length;
+
+
+        //user incorrect answers are the checked radios that have no class of correct
+        //here i give the wring answers chosen by the user a background of red
+        let userIncorrectAnswers = checkedRadios.filter(checkedRadio => checkedRadio.className !== "correct");
+        userIncorrectAnswers.forEach(userIncorrectAnswer => userIncorrectAnswer.nextElementSibling.classList.add("markWrong"));
 
 
         displayUserScore(score,numberOfQuestions);
@@ -139,4 +153,48 @@ const markQuiz = () => {
 
 const displayUserScore = (score,numberOfQuestions) => {
     alert(`you scored ${score} out of ${numberOfQuestions}`);
+
+    //hide the submit button and display "retake quiz exit"
+
+    let submitButton = document.querySelector("#screen-take-quiz button");
+
+    submitButton.style.display = "none";
+
+
+    let exitButton = document.createElement("div");
+    exitButton.addEventListener("click", () => location.reload());
+    exitButton.textContent = "Exit";
+    document.querySelector("#screen-take-quiz").appendChild(exitButton);
+
+
+    let retakeQuizButton = document.createElement("div");
+    retakeQuizButton.textContent = "Retake Quiz"
+    document.querySelector("#screen-take-quiz").appendChild(retakeQuizButton);
+
+    retakeQuizButton.addEventListener("click", function(){
+        //remove retake and exit buttons
+        this.parentElement.removeChild(retakeQuizButton);
+        exitButton.parentElement.removeChild(exitButton);
+
+        //show submit button
+        submitButton.style.display = "block";
+
+         //remove colored backgrounds of correct and wrong answers
+         // document.querySelectorAll(".markCorrect,.markWrong").forEach(option => option.className = "");
+         document.querySelectorAll(".markCorrect,.markWrong").forEach(function(label){
+            label.className = "";
+            if(label.previousElementSibling.checked == true) label.previousElementSibling.checked = false;
+         })
+
+    })
+
+
+}
+
+const retakeQuiz = (retakeQuizButton,exitButton,submitButton) => {
+   
+
+  
+
+   
 }

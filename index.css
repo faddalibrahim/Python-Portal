@@ -153,6 +153,14 @@ body{
    animation: fadeIn 1.5s linear;
 }
 
+#screen-take-quiz label.mark{
+	background-color: rgba(139, 195, 74, 0.7);
+	color: white;
+	padding: 0.25rem;
+	display: inline-block;
+	width: 90%; 
+}
+
 #screen-take-quiz input[type=radio]{
     margin-right: 0.5rem;
     margin-top: 1rem;
@@ -162,12 +170,7 @@ body{
     /*vertical-align: middle;*/
 }
 
-/*#screen-take-quiz input[type=radio]:after{
-	content: "a";
-	position: absolute;
-	top: -20%;
-	left: 15%;
-}*/
+
 
 #screen-take-quiz label{
 	cursor: pointer;
@@ -175,6 +178,22 @@ body{
 
 #screen-take-quiz input[type=radio]:checked + label{
     color: var(--theme-color);
+}
+
+#screen-take-quiz label.markCorrect{
+	background-color: rgba(139, 195, 74, 0.7);
+	color: white !important;
+	padding: 0.25rem;
+	display: inline-block;
+	width: 90%; 
+}
+
+#screen-take-quiz label.markWrong{
+	background-color: rgba(217, 70, 49, 0.7);
+	color: white !important;
+	padding: 0.25rem;
+	display: inline-block;
+	width: 90%; 
 }
 
 /*#screen-take-quiz input[type=radio] + label{
