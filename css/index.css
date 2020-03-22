@@ -1,3 +1,8 @@
+@font-face {
+    font-family: roboto-r;
+    src: url('./fonts/Roboto-Regular.ttf');
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -10,11 +15,13 @@
     --dark: #222;
     /*--theme-color: #7f00ffe6;*/
     --theme-color: #1c8adb;
+    /*--dcodeGreen: #009879;*/
+    /*--theme-color: #009879;*/
 }
 
 body{
 	background-color: white;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: roboto-r,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	width: 100vw;
 	height: 100vh;
 	display: flex;
@@ -54,7 +61,7 @@ body{
 	flex-grow: 1;
 }
 
-#header a.clicked{
+#header a.current_screen{
 	border-bottom-color: var(--theme-color);
 }
 
@@ -80,7 +87,7 @@ body{
 	/* 
 		All direct child divs of screen-take-quiz are given a class of chapers
 		These divs contain the name of the chapter in a p tag and a sub-div
-		(given a class of questionSet) containing the question set -- true or false, 
+		(given a class of question_types) containing the question set -- true or false, 
 		multipleChoice, exercises
 
 		Now the reason why I did #screen-take-quiz > div but not #scrren-take-quiz .chapters
@@ -105,7 +112,7 @@ body{
 		thereby making it 100% and standing out from the rest. I have added a transition
 		to make the it smooth;
 
-		at the same time also, i have hidden the questionSets with height 0 -- true/false, multipleChoice
+		at the same time also, i have hidden the question_typess with height 0 -- true/false, multipleChoice
 		exercises. I reveal them when the hover on #screen-take-quiz > div is active.
  	*/
 
@@ -116,13 +123,13 @@ body{
 
 }
 
-.questionSet{
+.question_types{
 	height: 0;
 	overflow-y: hidden;
 	transition: all 0.3s;
 }
 
-.questionSet small{
+.question_types small{
 	padding: 0.2rem;
 	color: var(--theme-color);
 	font-size: 0.95rem;
@@ -130,7 +137,7 @@ body{
 	cursor: pointer;
 }
 
-#screen-take-quiz > div:hover > .questionSet{
+#screen-take-quiz > div:hover > .question_types{
 	height: 1.2rem;
 	margin-top: 0.3rem;
 }
@@ -174,14 +181,17 @@ body{
 
 #screen-take-quiz label{
 	cursor: pointer;
+	transition: background-color 2s, color 0.5s, width 1s;
 }
 
 #screen-take-quiz input[type=radio]:checked + label{
     color: var(--theme-color);
+    /*font-weight: 600;*/
 }
 
 #screen-take-quiz label.markCorrect{
 	background-color: rgba(139, 195, 74, 0.7);
+	/*background-color: var(--theme-color);*/
 	color: white !important;
 	padding: 0.25rem;
 	display: inline-block;
@@ -219,6 +229,43 @@ body{
 	opacity: 1;
 }
 
+
+#scoreBox{
+	position: fixed;
+	top: 0;
+	margin: 0 !important;
+	z-index: 99;
+	width: 100vw !important;
+	height: 100vh;
+	background-color: rgba(13,12,14,0.7);
+	display: none;
+}
+
+#scoreBox > div{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	width: 12rem;
+}
+
+#scoreBox.showScore{
+	display: block;
+	animation: fadeIn 0.5s linear;
+}
+
+#scoreBox p{
+	display: flex;
+	justify-content: space-between;
+	background-color: #1c8adb;
+	padding: 0.5rem;
+	color: white;
+}
+
+#scoreBox article{
+	padding: 0.5rem;
+}
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 760px){

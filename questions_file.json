@@ -2,7 +2,7 @@
     {
         "chapter": "computers and programs",
 
-         "questionSet":{
+        "questionTypes":{
             "trueorfalse":[
                 {"q": "Computer science is the study of computers", "ans": false, "opts": [true,false]},
                 {"q": "The CPU is the brain of the computer", "ans": true, "opts": [true,false]},
@@ -27,16 +27,38 @@
                 {"q": "Which of the following is not true of comments", "ans": "they make a program more efficient", "opts": ["they make a program more efficient","they are intended for human readers","they are ignored by python","in python, they begin with a pound sign(#)"]},
                 {"q": "The items listed in the parentheses of a function definition are called", "ans": "parameters", "opts": ["parentheses","parameters","arguments","both b and c are correct"]}
             ]
-         }
+        }
     },
 
     {
         "chapter": "writing simple programs",
 
-        "questions": [
-        { "q": "what is something?", "ans": true, "options": [true, false]},
-        { "q": "what is something?", "ans": true, "options": [true, false]}
-        ]
+        "questionTypes":{
+           "trueorfalse":[
+               {"q": "The best way to write a program is to immediately type in some code and then debug it until it works", "ans": false, "opts": [true,false]},
+               {"q": "An algorithm can be written without using a programming language", "ans": true, "opts": [true,false]},
+               {"q": "Programs no longer require modification after they are written and de-bugged", "ans": false, "opts": [true,false]},
+               {"q": "Python identifiers must start with a letter or underscore", "ans": true, "opts": [true,false]},
+               {"q": "Keywords make good variable names", "ans": false, "opts": [true,false]},
+               {"q": "Expressions make good variable names", "ans": false, "opts": [true,false]},
+               {"q": "In Python, x = x + 1 is a legal statement", "ans": true, "opts": [true,false]},
+               {"q": "Python does not allow the input of multiple values with a single statement", "ans": false, "opts": [true,false]},
+               {"q": "A counted loop is designed to iterate a specific number of times", "ans": true, "opts": [true,false]},
+               {"q": "In a flowchart, diamonds are used to show statement sequences, and rectangles are used for decision points", "ans": false, "opts": [true,false]}
+           ],
+           "multiplechoice":[
+               {"q": "Which of the following is not a step in the software development process?", "ans": "fee setting", "opts": ["specifications","testing/debugging","fee setting","maintenance"]},
+               {"q": "What is the correct formula for converting celsius to Farenheit?", "ans": "F = 9/5(C) + 32", "opts": ["F = 9/5(C) + 32","F = 5/9(C) - 32","F = B^2 - 4AC","F = 212-32/100-0"]},
+               {"q": "The process of describing exactly what a computer program will do to solve a problem is called", "ans": "specification", "opts": ["design","implementation","programming","specification"]},
+               {"q": "Which of the following is not a legal identifier", "ans": "2spam", "opts": ["spam","spAm","2spam","spam4U"]},
+               {"q": "Which of the following are not used in expressions", "ans":"statements", "opts": ["variables","statements","operators","literals"]},
+               {"q": "Fragments of code that produce or calculate new data values are called ", "ans": "expressions", "opts": ["identifiers","expressions","productive clauses","asignment statements"]},
+               {"q": "Which of the following is not a part of the IPO pattern", "ans": "program", "opts": ["input","program","process","output"]},
+               {"q": "The template for <varible> in range (<expr>) describes", "ans": "a counted loop", "opts": ["a general for loop","an assignment statement","a flowchart","a counted loop"]},
+               {"q": "Which of the following is the most accurate model of assignment in Python", "ans": "sticky-note", "opts": ["sticky-note","varible-as-box","simultaneous","plastic-scale"]},
+               {"q": "In Python, getting user input is done with a special expression called", "ans": "input", "opts": ["for","read","simultaneous assignment","input"]}
+           ]
+        }
     },
 
      {

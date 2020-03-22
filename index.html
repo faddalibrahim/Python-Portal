@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Python Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Chrome -->
     <meta name="theme-color" content="#1c8adb">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#1c8adb">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <title>Document</title>
+    <!-- Fontawesome -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"> -->
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- <link rel="manifest" href="manifest.json"> -->
     <!-- app shell css -->
     <style>
@@ -114,56 +117,48 @@
     <header id="header">
         <!-- <li>Logo</li> -->
         <div>
-            <!-- <img src="python_logo.png"> -->
             <i class="fab fa-python"></i>
             <p>Python Portal</p>
-            <!-- <img src="plus.png"> -->
             <i class="fas fa-plus"></i>
         </div>
 
         <nav>
-           <!-- <a href="#screen-take-quiz">Take Quiz</a>  -->
-           <a href="#screen-take-quiz">Quiz</a> 
-           <!-- <a href="#screen-word-problems">Word Problems</a>  -->
+           <a href="#screen-take-quiz" class="current_screen">Quiz</a> 
            <a href="#screen-word-problems">Exercises</a> 
-           <!-- <a href="#screen-class-activities">Class Quizzes</a>  -->
            <a href="#screen-class-activities">Quizzes</a> 
-           <!-- <a href="#screen-lab-activities">Lab Activities</a>  -->
            <a href="#screen-lab-activities">Assignments</a> 
         </nav>
     </header>
+
     <main id="screens-parent">
         <div id="screen-take-quiz" class="screen">
             <div class="chapters">
                 <p>Computers and Programs</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Writing Simple Programs</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Computing with Numbers</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Objects and Graphics</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
@@ -171,16 +166,15 @@
             </div>
             <div class="chapters">
                 <p>Sequences Strings Lists and Files</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Defining Functions</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
@@ -188,25 +182,23 @@
             </div>
             <div class="chapters">
                 <p>Decision Structures</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Loop Structures and Booleans</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Simulation and Design</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
@@ -214,7 +206,7 @@
             </div>
             <div class="chapters">
                 <p>Defining Classes</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
@@ -223,29 +215,32 @@
             </div>
             <div class="chapters">
                 <p>Data Collection</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Object Oriented Design</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
                 </div>
             </div>
             <div class="chapters">
                 <p>Algorithm Design and Recursion</p>
-                <div class="questionSet">
+                <div class="question_types">
                     <small>TrueOrFalse</small>
                     <small>MultipleChoice</small>
                     <small>Exercises</small>
-                    <!-- <small>Word Problems</small> -->
+                </div>
+            </div>
+            <div id="scoreBox">
+                <div>
+                    <p><span>Score</span><i class="fas fa-times"></i></p>
+                    <article>10 out of 10</article>
                 </div>
             </div>
         </div>
@@ -290,8 +285,6 @@
 
         // screens.addEventListener("scroll",pageTransition);
     </script>
-    <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
-    <!-- <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/languages/go.min.js"></script> -->
+    <script src="js/index.js" type="module" defer></script>
 </body>
 </html>
