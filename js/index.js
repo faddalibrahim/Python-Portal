@@ -27,7 +27,7 @@ $id("screen-take-quiz").addEventListener("click", function(e) {
     if(e.target.tagName === "SMALL" && e.target.parentElement.className === "question_types") 
         fetchQuiz(e,mainDiv);
 
-    else if(e.target.textContent == "Submit") 
+    else if(e.target.textContent.toLowerCase() == "submit") 
         markQuiz()
 
 });
