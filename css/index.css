@@ -93,6 +93,69 @@ body{
 }
 
 
+ .chapters{
+   background-color: white;
+   opacity: 0;
+}
+
+
+.chapters{
+   animation: fadeIn 2.6s linear forwards;
+}
+
+.chapters:nth-child(1){
+   animation-delay: 0.1s;
+}
+
+ .chapters:nth-child(2){
+   animation-delay: 0.2s;
+}
+
+ .chapters:nth-child(3){
+   animation-delay: 0.3s;
+}
+
+ .chapters:nth-child(4){
+   animation-delay: 0.4s;
+}
+
+ .chapters:nth-child(5){
+   animation-delay: 0.5s;
+}
+
+ .chapters:nth-child(6){
+   animation-delay: 0.6s;
+}
+
+ .chapters:nth-child(7){
+   animation-delay: 0.7s;
+}
+
+ .chapters:nth-child(8){
+   animation-delay: 0.8s;
+}
+
+ .chapters:nth-child(9){
+   animation-delay: 0.9s;
+}
+
+ .chapters:nth-child(10){
+   animation-delay: 1s;
+}
+
+ .chapters:nth-child(11){
+   animation-delay: 1.1s;
+}
+
+ .chapters:nth-child(12){
+   animation-delay: 1.2s;
+}
+
+ .chapters:nth-child(13){
+   animation-delay: 1.3s;
+} 
+
+
 	/* 
 		the hover effect here strips out the margins on either side of the div
 		thereby making it 100% and standing out from the rest. I have added a transition
