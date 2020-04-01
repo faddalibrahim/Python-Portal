@@ -1,17 +1,17 @@
-import { $, $$, $id, $cs, debounce } from './modules.js'
+import { $, $$, $id, $cs } from './modules.js'
 
 const screensParent = $id("screens-parent"),
       links = Array.from($$("nav a")),
       screens = $cs("screens");
 
 /*Showing the current screen to the user when he scrolls*/
-const pageTransition = debounce(() => {
-    const index = Math.round(screensParent.scrollLeft / window.innerWidth);
-    links.find(link => link.classList.contains("current_screen")).classList.remove("current_screen");
-    links[index].classList.add("current_screen");
-},60)
+// const pageTransition = debounce(() => {
+//     const index = Math.round(screensParent.scrollLeft / window.innerWidth);
+//     links.find(link => link.classList.contains("current_screen")).classList.remove("current_screen");
+//     links[index].classList.add("current_screen");
+// },60)
 
-screensParent.addEventListener("scroll",pageTransition);
+// screensParent.addEventListener("scroll",pageTransition);
 
 let scoreBox = $id("scoreBox");//////////////////////////////////////////////////////////////////////////////////////////////////
 scoreBox.querySelector("p").addEventListener("click",function(){
@@ -43,6 +43,8 @@ const fetchQuiz = (e,mainDiv) => {
         const {questionTypes} = await quizFile.find(quiz => quiz.chapter == clickedChapter);
         renderQuiz(questionTypes[clickedQuestionType],mainDiv);
     })()
+
+    $("#header nav span").textContent = clickedChapter;
 }
 
 

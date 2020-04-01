@@ -14,6 +14,7 @@
     --whitesmoke: #f5f5f5;
     --dark: #222;
     /*--theme-color: #7f00ffe6;*/
+    /*--theme-color: #1c8adb;*/
     --theme-color: #1c8adb;
     /*--dcodeGreen: #009879;*/
     /*--theme-color: #009879;*/
@@ -46,42 +47,27 @@ body{
 }
 
 #header nav{
-	display: flex;
-	justify-content: space-between;
-	text-align: center;
-}
-
-#header a{
-	text-decoration: none;
 	color: var(--dark);
-	padding: 0.4rem 0;
 	font-size: 1rem;
-	border-bottom: 0.13rem solid transparent;
-	transition: all 0.1s ease-in-out;
-	flex-grow: 1;
-}
-
-#header a.current_screen{
-	border-bottom-color: var(--theme-color);
+	padding: 0.4rem;
+	text-align: center;
 }
 
 /* MAIN STYLES */
 	/* 
-		screens-parent is the MAIN tag, containg 4 sub divs corresponding 
+		main is the MAIN tag, containg 4 sub divs corresponding 
 	    to each of the different screens. I gave each sub div a class of 
 	    screen to style them collectively.
 	*/
-#screens-parent{
+#main{
 	display: flex;
 	width: 100vw;
 	flex-grow: 1;
-	overflow-x: scroll;
-	scroll-snap-type: x mandatory;
+	overflow-y: scroll;
 }
 
-.screen{
+#screen-take-quiz{
 	flex: 0 0 100vw;
-    scroll-snap-align: start;
 }
 
 	/* 
