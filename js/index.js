@@ -115,7 +115,10 @@ const markQuiz = () => {
 
 
     if(checkedRadios.length !== numberOfQuestions){
-        alert("please answer all questions");
+        // alert("please answer all questions");
+        $("#screen-take-quiz").appendChild(scoreBox);
+        scoreBox.classList.add("showScore");
+        scoreBox.querySelector("article").innerHTML = `Answer all questions`;
     }else{
         //all correct answers are radios with a class of correct
         //here i give the labels of all correct answers a background-color of green
