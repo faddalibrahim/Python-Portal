@@ -1,5 +1,5 @@
 const appShell = 'app-shell';
-const assests = [
+const assets = [
 	'/',
 	'/index.html',
 	'/js/index.js',
@@ -7,14 +7,21 @@ const assests = [
 	'/js/modules.js',
 	'/css/index.css',
 	'/questions_file.json',
-	'/fonts/Roboto-Regular.ttf'
+	'/fonts/Roboto-Regular.ttf',
+	'/fontawesome/css/all.min.css',
+	'/fontawesome/webfonts/fa-solid-900.ttf',
+	'/fontawesome/webfonts/fa-solid-900.woff',
+	'/fontawesome/webfonts/fa-solid-900.woff2',
+	'/fontawesome/webfonts/fa-brands-400.ttf',
+	'/fontawesome/webfonts/fa-brands-400.woff',
+	'/fontawesome/webfonts/fa-brands-400.woff2'
 ];
 
 //listening to install event
 self.addEventListener('install', e => {
 	// console.log('serviceWorkder has been installed');
 	e.waitUntil(
-		caches.open(appShell).then(chache => {
+		caches.open(appShell).then(cache => {
 			cache.addAll(assets)
 		})
 	)
