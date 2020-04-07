@@ -19,7 +19,6 @@ const assets = [
 
 //listening to install event
 self.addEventListener('install', e => {
-	// console.log('serviceWorkder has been installed');
 	e.waitUntil(
 		caches.open(appShell).then(cache => {
 			cache.addAll(assets)
@@ -33,7 +32,7 @@ self.addEventListener('activate', e => {
 	console.log('serviceWorkder has been activated');
 })
 
-//fetch
+//listening to fetch event
 self.addEventListener('fetch', e => {
 	e.respondWith(
 	    caches.match(e.request).then(response => {
