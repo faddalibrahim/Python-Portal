@@ -1,4 +1,4 @@
-const appShell = 'app-shell';
+const appShell = 'app-shell-data-new';
 const assets = [
 	'/',
 	'/index.html',
@@ -29,7 +29,15 @@ self.addEventListener('install', e => {
 
 //listening to activate event
 self.addEventListener('activate', e => {
-	console.log('serviceWorkder has been activated');
+	// console.log('serviceWorkder has been activated');
+	e.waitUntil(
+		caches.keys().then(keys => {
+			return Promise.all(keys
+				.filter(key => key !== appShell)
+				.map(key => caches.delete(key))
+			)
+		})
+	)
 })
 
 //listening to fetch event

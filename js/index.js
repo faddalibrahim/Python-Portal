@@ -1,23 +1,7 @@
-import { $, $$, $id, $cs } from './modules.js'
+import { $, $$, $id, $cs } from './modules.js';
 
-const screensParent = $id("screens-parent"),
-      links = Array.from($$("nav a")),
-      screens = $cs("screens");
-
-/*Showing the current screen to the user when he scrolls*/
-// const pageTransition = debounce(() => {
-//     const index = Math.round(screensParent.scrollLeft / window.innerWidth);
-//     links.find(link => link.classList.contains("current_screen")).classList.remove("current_screen");
-//     links[index].classList.add("current_screen");
-// },60)
-
-// screensParent.addEventListener("scroll",pageTransition);
-
-let scoreBox = $id("scoreBox");//////////////////////////////////////////////////////////////////////////////////////////////////
-scoreBox.querySelector("p").addEventListener("click",function(){
-    // scoreBox.style.display = "none";
-    scoreBox.classList.remove("showScore");
-})
+let scoreBox = $id("scoreBox");
+scoreBox.querySelector("p").addEventListener("click", () => scoreBox.classList.remove("showScore"));
 
 /*When user selects a quiz set or when he submits a quiz*/
 $id("screen-take-quiz").addEventListener("click", function(e) {
@@ -104,7 +88,6 @@ const renderQuiz = (selectedQuestionType,mainDiv) => {
     })
 
     mainDiv.appendChild(submitButton);
-
 }
 
 
@@ -115,13 +98,11 @@ const markQuiz = () => {
 
 
     if(checkedRadios.length !== numberOfQuestions){
-        // alert("please answer all questions");
         $("#screen-take-quiz").appendChild(scoreBox);
         scoreBox.classList.add("showScore");
-        scoreBox.querySelector("article").innerHTML = `Answer all questions`;
+        scoreBox.querySelector("article").textContent = `Answer all questions`;
     }else{
         //all correct answers are radios with a class of correct
-        //here i give the labels of all correct answers a background-color of green
         let allCorrectAnswers = radios.filter(radio => radio.className == "correct");
         allCorrectAnswers.forEach(correctAnswer => correctAnswer.nextElementSibling.classList.add("markCorrect"));
 
@@ -131,28 +112,18 @@ const markQuiz = () => {
         //user score is the length of user correct answers
         let score = userCorrectAnswers.length;
 
-
         //user incorrect answers are the checked radios that have no class of correct
-        //here i give the labels of all wrong answers chosen by the user a background of red
         let userIncorrectAnswers = checkedRadios.filter(checkedRadio => checkedRadio.className !== "correct");
         userIncorrectAnswers.forEach(incorrectAnswer => incorrectAnswer.nextElementSibling.classList.add("markWrong"));
 
         //disabling radios
-        radios.forEach(radio => {
-            radio.disabled = true;
-        })
-
+        radios.forEach(radio => radio.disabled = true);
 
         displayUserScore(score,numberOfQuestions);
     }
-
 }
 
 const displayUserScore = (score,numberOfQuestions) => {
-    // alert(`you scored ${score} out of ${numberOfQuestions}`);
-
-    // let scoreBox = $id("scoreBox").classList.add("showScore");
-    // scoreBox
     $("#screen-take-quiz").appendChild(scoreBox);
     scoreBox.classList.add("showScore");
     scoreBox.querySelector("article").innerHTML = `You scored ${score} out of ${numberOfQuestions}`;
@@ -163,8 +134,8 @@ const displayUserScore = (score,numberOfQuestions) => {
 
 
     let exitButton = document.createElement("div");
-    exitButton.addEventListener("click", () => location.reload());
     exitButton.textContent = "Exit";
+    exitButton.addEventListener("click", () => location.reload());
     $("#screen-take-quiz").appendChild(exitButton);
 
 
@@ -182,23 +153,12 @@ const displayUserScore = (score,numberOfQuestions) => {
 
          //remove colored backgrounds of correct and wrong answers
          document.querySelectorAll(".markCorrect,.markWrong").forEach(function(label){
-            label.className = "";
+            label.className = null;
             if(label.previousElementSibling.checked == true) label.previousElementSibling.checked = false;
          })
 
          //able radio buttons
          let radios = Array.from($$("#screen-take-quiz input[type=radio]"));
          radios.forEach(radio => radio.disabled = false);
-
     })
-
-
-}
-
-const retakeQuiz = (retakeQuizButton,exitButton,submitButton) => {
-   
-
-  
-
-   
 }
