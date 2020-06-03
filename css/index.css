@@ -13,11 +13,8 @@
     --gray: #ececec;
     --whitesmoke: #f5f5f5;
     --dark: #222;
-    /*--theme-color: #7f00ffe6;*/
     /*--theme-color: #1c8adb;*/
-    --theme-color: #1c8adb;
-    /*--dcodeGreen: #009879;*/
-    /*--theme-color: #009879;*/
+    --theme-color:  #533872;
 }
 
 body{
@@ -33,13 +30,13 @@ body{
 /* HEADER STYLES */
 
 #header{
-    box-shadow: 0.1rem 0.05rem 1rem rgba(13,12,14,0.5);
+    box-shadow: 0.1rem 0.05rem 1rem rgba(13,12,14,0.2);
     color: white;
     font-size: 1.2rem;
 }
 
 #header div{
-	padding: 0.5rem;
+	padding: 0.8rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -49,7 +46,7 @@ body{
 #header nav{
 	color: var(--dark);
 	font-size: 1rem;
-	padding: 0.4rem;
+	padding: 0.7rem;
 	text-align: center;
 }
 
@@ -86,7 +83,7 @@ body{
 		class ogf chapters
 	*/
 #screen-take-quiz > div{
-	box-shadow: 0rem 0.2rem 0.4rem -0.2rem rgba(13,12,14,0.6);
+	box-shadow: 0rem 0.2rem 0.4rem -0.2rem rgba(13,12,14,0.3);
 	margin: 1rem 0.8rem;
 	padding: 0.5rem;
 	transition: all 0.3s;
@@ -96,6 +93,11 @@ body{
  .chapters{
    background-color: white;
    opacity: 0;
+}
+
+.chapters p{
+	padding: 1rem;
+	cursor: pointer;
 }
 
 
@@ -172,6 +174,10 @@ body{
 
 }
 
+/*.chapters:hover ~ .optionsBox.showOptions{
+	display: none;
+}*/
+
 .question_types{
 	height: 0;
 	overflow-y: hidden;
@@ -233,9 +239,27 @@ body{
 	transition: background-color 2s, color 0.5s, width 1s;
 }
 
+#screen-take-quiz input[type=radio]{
+	-webkit-appearance: none;
+	width: 1rem;
+	height: 1rem;
+	border: 0.2rem solid var(--theme-color);
+	border-radius: 50%;
+	outline: none;
+	padding: 0.2rem;
+}
+
+#screen-take-quiz input[type=radio]:checked{
+	/*border-width: 0.2rem;*/
+	padding: 0rem;
+	width: 0rem;
+	height: 0rem;
+	border-width: 0.5rem;
+}
+
 #screen-take-quiz input[type=radio]:checked + label{
     color: var(--theme-color);
-    /*font-weight: 600;*/
+    font-weight: 600;
 }
 
 #screen-take-quiz label.markCorrect{
@@ -280,7 +304,9 @@ body{
 }
 
 
-#scoreBox{
+
+#scoreBox,
+#optionBox{
 	position: fixed;
 	top: 0;
 	margin: 0 !important;
@@ -291,30 +317,56 @@ body{
 	display: none;
 }
 
-#scoreBox > div{
+#scoreBox > div,
+#optionBox > div{
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	background-color: white;
-	width: 12rem;
+	width: 20rem;
 }
 
-#scoreBox.showScore{
+#scoreBox.showScore,
+#optionBox.showOptions{
 	display: block;
 	animation: fadeIn 0.5s linear;
 }
 
-#scoreBox p{
+#scoreBox p,
+#optionBox p{
 	display: flex;
 	justify-content: space-between;
-	background-color: #1c8adb;
-	padding: 0.5rem;
+	background-color: var(--theme-color);
+	padding: 1rem;
 	color: white;
+	cursor: pointer;
 }
 
-#scoreBox article{
+#scoreBox article,
+#optionBox article{
 	padding: 0.5rem;
+}
+
+#optionBox > div{
+	background-color: #eee;
+	background-color: (#302d43,0.9);
+}
+
+#optionBox article{
+	padding: 1rem;
+	background-color: #eee;
+	background-color: #fff;
+	/*margin-top: 1rem;*/
+	letter-spacing: 0.05rem;
+	color: #222;
+	border-bottom: 0.1rem solid #ddd;
+	/*color: white;*/
+	cursor: pointer;
+}
+
+#optionBox article:last-of-type{
+	border-bottom: none;
 }
 
 /* MEDIA QUERIES */
@@ -326,5 +378,9 @@ body{
 
 	#screen-take-quiz > div:hover{
 		width: 35vw;
+	}
+
+	#optionBox > div{
+		width: 20vw;
 	}
 }

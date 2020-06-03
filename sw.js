@@ -2,10 +2,10 @@ const appShell = 'app-shell-data-new';
 const assets = [
 	'/',
 	'/index.html',
+	'/css/index.css',
 	'/js/index.js',
 	'/js/app.js',
 	'/js/modules.js',
-	'/css/index.css',
 	'/questions_file.json',
 	'/fonts/Roboto-Regular.ttf',
 	'/fontawesome/css/all.min.css',

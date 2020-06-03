@@ -1,15 +1,39 @@
 import { $, $$, $id, $cs } from './modules.js';
 
 let scoreBox = $id("scoreBox");
+let optionBox = $id("optionBox");
+
 scoreBox.querySelector("p").addEventListener("click", () => scoreBox.classList.remove("showScore"));
+optionBox.querySelector("p").addEventListener("click", () => optionBox.classList.remove("showOptions"));
+
+
 
 /*When user selects a quiz set or when he submits a quiz*/
+let clickedChapter;
 $id("screen-take-quiz").addEventListener("click", function(e) {
     let mainDiv = this;
     // let questionType = e.target;
 
-    if(e.target.tagName === "SMALL" && e.target.parentElement.className === "question_types") 
-        fetchQuiz(e,mainDiv);
+    // console.log(e.target);
+
+    // if(e.target.className === 'chapters'){
+    //     optionBox.classList.add('showOptions');
+    //     return;
+    // }
+
+
+    if(e.target.tagName === "P" && e.target.parentElement.className === 'chapters') {
+        optionBox.classList.add('showOptions');
+        optionBox.querySelector("span").textContent = e.target.textContent;
+        clickedChapter = e.target.textContent.toLowerCase();
+        console.log(clickedChapter);
+    }
+
+    else if(e.target.tagName === 'ARTICLE' && e.target.parentElement.parentElement.id === 'optionBox'){
+        fetchQuiz(e,mainDiv,clickedChapter);
+        // console.log(clickedChapter);
+        // console.log(e.target.textContent.toLowerCase());
+    }
 
     else if(e.target.textContent.toLowerCase() == "submit") 
         markQuiz()
@@ -17,14 +41,26 @@ $id("screen-take-quiz").addEventListener("click", function(e) {
 });
 
 //fetching quiz from quiz json file
-const fetchQuiz = (e,mainDiv) => {
-    const clickedChapter = e.target.parentElement.previousElementSibling.textContent.toLowerCase(),
-          clickedQuestionType = e.target.textContent.toLowerCase();
+const fetchQuiz = (e,mainDiv,clickedChapter) => {
+    const clickedChapterr = clickedChapter,
+          clickedQuestionType = e.target.textContent.toLowerCase().replace(/[^a-z0-9]/gi,'');
+
+
+          // console.log(clickedChapterr);
+          // console.log(clickedQuestionType);
+
+          // return;
     
     (async() => {
         const response = await fetch("questions_file.json");
         const quizFile = await response.json();
-        const {questionTypes} = await quizFile.find(quiz => quiz.chapter == clickedChapter);
+        const {questionTypes} = await quizFile.find(quiz => quiz.chapter == clickedChapterr);
+
+        console.log(questionTypes);
+        console.log(clickedQuestionType);
+        console.log(questionTypes[clickedQuestionType]);
+        // return;
+
         renderQuiz(questionTypes[clickedQuestionType],mainDiv);
     })()
 
@@ -35,6 +71,11 @@ const fetchQuiz = (e,mainDiv) => {
 //rendering selected quiz type to the screen
 const renderQuiz = (selectedQuestionType,mainDiv) => {
     //clearing the take-quiz-screen to append quiz questions
+
+    // console.log(selectedQuestionType);
+    // return;
+
+
     mainDiv.innerHTML = null;
 
     //submit button
@@ -127,6 +168,7 @@ const displayUserScore = (score,numberOfQuestions) => {
     $("#screen-take-quiz").appendChild(scoreBox);
     scoreBox.classList.add("showScore");
     scoreBox.querySelector("article").innerHTML = `You scored ${score} out of ${numberOfQuestions}`;
+    let parent = document.createElement("div");
 
     //hide the submit button and display "retake quiz" and "exit"
     let submitButton = $("#screen-take-quiz button");
@@ -134,19 +176,31 @@ const displayUserScore = (score,numberOfQuestions) => {
 
 
     let exitButton = document.createElement("div");
-    exitButton.textContent = "Exit";
+    // exitButton.textContent = "Exit";
+    exitButton.innerHTML = `<i class='fas fa-times'></i>  Exit`;
+    exitButton.style.cssText = "display: inline-block; width: 46%; text-align:center; ; margin-left: 0.5%";
     exitButton.addEventListener("click", () => location.reload());
-    $("#screen-take-quiz").appendChild(exitButton);
+    // $("#screen-take-quiz").appendChild(exitButton);
+    // $("#screen-take-quiz").prepend(exitButton);
+    parent.prepend(exitButton);
 
 
     let retakeQuizButton = document.createElement("div");
-    retakeQuizButton.textContent = "Retake Quiz"
-    $("#screen-take-quiz").appendChild(retakeQuizButton);
+    // retakeQuizButton.textContent = "Retake Quiz"
+    retakeQuizButton.innerHTML = `<i class='fas fa-redo'></i>  Redo`;
+    retakeQuizButton.style.cssText = "display: inline-block; width: 46%; text-align:center; margin-right: 0.5%";
+    // $("#screen-take-quiz").appendChild(retakeQuizButton);
+    // $("#screen-take-quiz").prepend(retakeQuizButton);
+    parent.prepend(retakeQuizButton);
+
+
+    $("#screen-take-quiz").prepend(parent);
 
     retakeQuizButton.addEventListener("click", function(){
         //remove retake and exit buttons
-        this.parentElement.removeChild(retakeQuizButton);
-        exitButton.parentElement.removeChild(exitButton);
+        this.parentElement.parentElement.removeChild(parent);
+        // this.parentElement.removeChild(retakeQuizButton);
+        // exitButton.parentElement.removeChild(exitButton);
 
         //show submit button
         submitButton.style.display = "block";
