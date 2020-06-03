@@ -3,8 +3,8 @@
     "short_name": "PythonPortal",
     "start_url": "./index.html",
     "display": "standalone",
-    "background_color": "#1c8adb",
-    "theme_color": "#1c8adb",
+    "background_color": "#533872",
+    "theme_color": "#533872",
     "orientation": "portrait-primary",
     "icons":[
         {
