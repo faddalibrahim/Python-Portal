@@ -26,38 +26,19 @@
 
 
         ::-webkit-scrollbar {
-            width: 0px;  /* Remove scrollbar space */
-            background: transparent;  /* Optional: just make scrollbar invisible */
+            /*width: 0px;   Remove scrollbar space */
+            /*background: transparent;   Optional: just make scrollbar invisible */
         }
         /* Optional: show position indicator in red */
         ::-webkit-scrollbar-thumb {
-            background: transparent;
+            /*background: transparent;*/
         }
 
-       
-
-       
-
-     
-         
-
-         
-
-        
-
-
-
-         
-
-
-
-       
-    </style>
+  </style>
 </head>
 <body>
     <!-- App Shell HTML -->
     <header id="header">
-        <!-- <li>Logo</li> -->
         <div>
             <i class="fab fa-python"></i>
             <p>Python Portal</p>
@@ -66,7 +47,6 @@
 
         <nav>
             <span>Select a chapter</span>
-            <!-- <i class="fas fa-arrow-left" hidden></i> -->
         </nav>
     </header>
 
@@ -126,47 +106,8 @@
                 </div>
             </div>
         </div>
-        <!-- <div id="screen-word-problems" class="screen">Word Problems</div>
-        <div id="screen-class-activities" class="screen">Class Quizes</div>
-        <div id="screen-lab-activities" class="screen">Lab Activities</div> -->
     </main>
-   <!--  <footer>
-        <pre>
-            <code class="language-">
-               console.log("apple")
-               print("i am hungry")
-               echo "something"
-            </code>
-        </pre>
-    </footer> -->
-    <script>
-        // const debounce = (func, wait, immediate) => {
-        //     var timeout;
-        //     return (...args) => {
-        //         const later = () => {
-        //             timeout = null;
-        //             if(!immediate) func.apply(this,args);
-        //         };
-        //         const callNow = immediate && !timeout;
-        //         clearTimeout(timeout);
-        //         timeout = setTimeout(later,wait);
-        //         if(callNow) func.apply(this,args);
-        //     };
-        // }
-
-        // const screens = document.getElementById("screens"),
-        //       navbar = document.getElementById("navbar"),
-        //       pageNames = ["Flights","Rewards"];
-
-        // const pageTransition = debounce(() => {
-        //     const index = Math.round(screens.scrollLeft / window.innerWidth);
-        //     navbar.textContent = pageNames[index];
-        //     // const index = screens.scrollLeft;
-        //     // console.log(index);
-        // },60)
-
-        // screens.addEventListener("scroll",pageTransition);
-    </script>
+   
     <!-- DOM interactions and quiz functionalities -->
     <script src="js/index.js" type="module" defer></script>
     <!-- pwa stuff and service worker lifecycle -->
