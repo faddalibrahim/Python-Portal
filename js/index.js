@@ -1,7 +1,7 @@
 import { $, $$, $id, $cs } from './modules.js';
 
-let scoreBox = $id("scoreBox");
-let optionBox = $id("optionBox");
+const scoreBox = $id("scoreBox");
+const optionBox = $id("optionBox");
 
 scoreBox.querySelector("p").addEventListener("click", () => scoreBox.classList.remove("showScore"));
 optionBox.querySelector("p").addEventListener("click", () => optionBox.classList.remove("showOptions"));
@@ -12,27 +12,15 @@ optionBox.querySelector("p").addEventListener("click", () => optionBox.classList
 let clickedChapter;
 $id("screen-take-quiz").addEventListener("click", function(e) {
     let mainDiv = this;
-    // let questionType = e.target;
-
-    // console.log(e.target);
-
-    // if(e.target.className === 'chapters'){
-    //     optionBox.classList.add('showOptions');
-    //     return;
-    // }
-
 
     if(e.target.tagName === "P" && e.target.parentElement.className === 'chapters') {
         optionBox.classList.add('showOptions');
         optionBox.querySelector("span").textContent = e.target.textContent;
         clickedChapter = e.target.textContent.toLowerCase();
-        console.log(clickedChapter);
     }
 
     else if(e.target.tagName === 'ARTICLE' && e.target.parentElement.parentElement.id === 'optionBox'){
         fetchQuiz(e,mainDiv,clickedChapter);
-        // console.log(clickedChapter);
-        // console.log(e.target.textContent.toLowerCase());
     }
 
     else if(e.target.textContent.toLowerCase() == "submit") 
@@ -44,22 +32,12 @@ $id("screen-take-quiz").addEventListener("click", function(e) {
 const fetchQuiz = (e,mainDiv,clickedChapter) => {
     const clickedChapterr = clickedChapter,
           clickedQuestionType = e.target.textContent.toLowerCase().replace(/[^a-z0-9]/gi,'');
-
-
-          // console.log(clickedChapterr);
-          // console.log(clickedQuestionType);
-
-          // return;
     
     (async() => {
         const response = await fetch("questions_file.json");
         const quizFile = await response.json();
         const {questionTypes} = await quizFile.find(quiz => quiz.chapter == clickedChapterr);
 
-        console.log(questionTypes);
-        console.log(clickedQuestionType);
-        console.log(questionTypes[clickedQuestionType]);
-        // return;
 
         renderQuiz(questionTypes[clickedQuestionType],mainDiv);
     })()
@@ -70,11 +48,6 @@ const fetchQuiz = (e,mainDiv,clickedChapter) => {
 
 //rendering selected quiz type to the screen
 const renderQuiz = (selectedQuestionType,mainDiv) => {
-    //clearing the take-quiz-screen to append quiz questions
-
-    // console.log(selectedQuestionType);
-    // return;
-
 
     mainDiv.innerHTML = null;
 
@@ -176,21 +149,15 @@ const displayUserScore = (score,numberOfQuestions) => {
 
 
     let exitButton = document.createElement("div");
-    // exitButton.textContent = "Exit";
     exitButton.innerHTML = `<i class='fas fa-times'></i>  Exit`;
     exitButton.style.cssText = "display: inline-block; width: 46%; text-align:center; ; margin-left: 0.5%";
     exitButton.addEventListener("click", () => location.reload());
-    // $("#screen-take-quiz").appendChild(exitButton);
-    // $("#screen-take-quiz").prepend(exitButton);
     parent.prepend(exitButton);
 
 
     let retakeQuizButton = document.createElement("div");
-    // retakeQuizButton.textContent = "Retake Quiz"
     retakeQuizButton.innerHTML = `<i class='fas fa-redo'></i>  Redo`;
     retakeQuizButton.style.cssText = "display: inline-block; width: 46%; text-align:center; margin-right: 0.5%";
-    // $("#screen-take-quiz").appendChild(retakeQuizButton);
-    // $("#screen-take-quiz").prepend(retakeQuizButton);
     parent.prepend(retakeQuizButton);
 
 
@@ -199,8 +166,6 @@ const displayUserScore = (score,numberOfQuestions) => {
     retakeQuizButton.addEventListener("click", function(){
         //remove retake and exit buttons
         this.parentElement.parentElement.removeChild(parent);
-        // this.parentElement.removeChild(retakeQuizButton);
-        // exitButton.parentElement.removeChild(exitButton);
 
         //show submit button
         submitButton.style.display = "block";
