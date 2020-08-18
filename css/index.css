@@ -30,7 +30,8 @@ body{
 /* HEADER STYLES */
 
 #header{
-    box-shadow: 0.1rem 0.05rem 1rem rgba(13,12,14,0.2);
+    /* box-shadow: 0.1rem 0.05rem 1rem rgba(13,12,14,0.2); */
+    box-shadow: 0 0.1875rem 0.3125rem 0 rgba(0,0,0,.15);
     color: white;
     font-size: 1.2rem;
     display: relative;
